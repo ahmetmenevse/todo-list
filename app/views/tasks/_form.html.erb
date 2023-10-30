@@ -2,9 +2,8 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :duration %>
-  <%= f.input :priority, collection: ['!', '!!', '!!!'], input_html: { class: 'selectpicker' }, prompt: "Choose From List" %>
-  <%= f.input :date %>
-  <%= f.input :start_time %>
+  <%= f.input :priority, collection: ['Low', 'Medium', 'High'], input_html: { class: 'selectpicker' }, prompt: "Choose From List" %>
+  <%= f.input :date, label: "Due Date" %>
   <%= f.input :completed %>
   <%= f.button :submit %>
 <% end %>
