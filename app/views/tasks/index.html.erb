@@ -1,7 +1,48 @@
-<h1>index page</h1>
-<%= link_to "Create new task", new_task_path, :class => "btn btn-primary m-1" %>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.name, task_path(task) %></li>
-  <% end %>
-</ul>
+
+  <div class="not-completed">
+    <h1 class="text-center">Backlog</h1>
+    <ul>
+      <div class="cards m-2">
+        <% @tasks.each do |task| %>
+          <% unless task.completed %>
+            <% if task.present? %>
+              <div class="card-category">
+                <%= link_to edit_task_path(task) do %>
+                  <i class="fa-regular fa-pen-to-square edit-icon"></i>
+                <% end %>
+                <li><%=task.name %></li>
+                <p>Description: <span><%= task.description %></span></p>
+                <p>Priority: <span> <%= task.priority %> </span></p>
+                <p>Date: <span> <%= task.date %> </span></p>
+                <p>Duration: <span> <%= task.duration.ceil %>/h</span></p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </ul>
+    </div>
+  <div class="completed">
+    <h1 class="text-center">Done</h1>
+    <ul>
+      <div class="cards m-2">
+        <% @tasks.each do |task| %>
+          <% if task.completed %>
+            <% if task.present? %>
+              <div class="card-category">
+              <%= link_to edit_task_path(task) do %>
+                <i class="fa-regular fa-pen-to-square edit-icon"></i>
+              <% end %>
+                <li><%= task.name %></li>
+                <p>Description: <span><%= task.description %></span></p>
+                <p>Priority: <span> <%= task.priority %> </span></p>
+                <p>Due Date: <span> <%= task.date %> </span></p>
+                <p>Duration: <span> <%= task.duration.ceil %>/h </span> </p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+
