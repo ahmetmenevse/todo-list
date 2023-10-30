@@ -1,0 +1,12 @@
+<div class="card-category">
+  <%= link_to edit_task_path(task) do %>
+    <i class="fa-regular fa-pen-to-square edit-icon"></i>
+  <% end %>
+  <li><%= task.name %></li>
+  <p>Description: <span><%= task.description %></span></p>
+  <p>Priority: <span><%= task.priority %></span></p>
+  <p>Status: <span><%= display_status(task.status) %></span></p>
+  <p>Date: <span><%= task.date.strftime("%d/%m/%Y") %></span></p>
+  <p>Duration: <span><%= task.duration.round %>h</span></p>
+</div>
+

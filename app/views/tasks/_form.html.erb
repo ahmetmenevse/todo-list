@@ -4,7 +4,10 @@
   <%= f.input :duration %>
   <%= f.input :priority, collection: ['Low', 'Medium', 'High'], input_html: { class: 'selectpicker' }, prompt: "Choose From List" %>
   <%= f.input :date, label: "Due Date" %>
-  <%= f.input :completed %>
+<%= f.input :status, collection: ['ToDo', 'In Progress', 'Done'], input_html: { class: 'selectpicker' }, prompt: "Choose From List" %>
+
+
   <%= f.button :submit %>
 <% end %>
+
 

@@ -1,7 +1,9 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:edit, :update, :destroy]
   def index
-    @tasks = Task.all
+    @to_do_tasks = Task.where(status: 'to_do')
+    @in_progress_tasks = Task.where(status: 'in_progress')
+    @done_tasks = Task.where(status: 'done')
   end
 
   def new
@@ -10,16 +12,22 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
-    redirect_to task_path(@task)
+    if @task.save
+      redirect_to tasks_path(@tasks)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @task.update(task_params)
-    redirect_to task_path(@task)
+    if @task.update(task_params)
+      redirect_to tasks_path(@tasks)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -41,6 +49,6 @@ class TasksController < ApplicationController
       :priority,
       :date,
       :start_time,
-      :completed)
+      :status)
   end
 end
