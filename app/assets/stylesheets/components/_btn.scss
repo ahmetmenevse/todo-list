@@ -1,0 +1,32 @@
+.btn {
+  border: none; 
+  color: #fff;
+  border-radius: 5px;
+  padding: 8px 20px; 
+}
+
+
+.btn-back {
+  background-color: #808080; 
+  float: left;
+}
+
+.btn-back:hover {
+  background-color: #606060; 
+}
+
+.btn-create-task {
+  background-color: #007BFF; 
+  float: right;
+}
+
+.btn-create-task:hover {
+  background-color: #0056b3; 
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+

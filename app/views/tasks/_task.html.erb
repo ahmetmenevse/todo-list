@@ -1,0 +1,11 @@
+<div class="card-category">
+  <%= link_to edit_task_path(task) do %>
+    <i class="fa-regular fa-pen-to-square edit-icon"></i>
+  <% end %>
+  <li><%= task.name %></li>
+  <p> <strong>Description:</strong>  <span><%= task.description %></span></p>
+  <p><strong>Priority: </strong><span><%= task.priority %></span></p>
+  <p><strong>Due Date: </strong><span><%= task.date.strftime("%d/%m/%Y") %></span></p>
+  <p><strong>Duration: </strong><span><%= task.duration.present? ? task.duration.round : 'N/A' %>h</span></p>
+</div>
+
