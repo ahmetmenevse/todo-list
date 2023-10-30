@@ -19,7 +19,6 @@ html, body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 16px;
   list-style: none;
-  height: 100%;
   width: 100%;
 }
 
@@ -43,6 +42,7 @@ html, body {
   li {
     text-decoration: none;
     color: #FA9494;
+    font-size: large;
   }
 }
 
@@ -101,31 +101,29 @@ html, body {
   }
 
   .task {
-    width: 100%; /* Task kutularının genişliğini daraltın */
-    padding: 10px; /* Kutu içeriklerine boşluk ekleyin */
-    overflow: hidden; /* İçeriğin taşmasını engellemek için kullanılır */
+    width: 100%;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .card-category {
-    font-size: 16px; /* Başlık yazı boyutunu küçültün */
+    font-size: 16px;
     margin-bottom: 10px;
   }
 
   p, li {
-    font-size: 14px; /* İçerik yazılarının boyutunu küçültün */
-    margin-top: 10px; /* İçerik yazılarının arasındaki boşluğu ayarlayın */
+    font-size: 14px; 
+    margin-top: 10px;
   }
 
   h1 {
-    font-size: 20px; /* Başlık yazı boyutunu küçültün */
+    font-size: 20px; 
   }
 
   .edit-icon {
     font-size: 10px;
   }
-
 }
 
 // Small devices (landscape phones, 576px and up)

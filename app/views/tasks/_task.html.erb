@@ -7,6 +7,6 @@
   <p>Priority: <span><%= task.priority %></span></p>
   <p>Status: <span><%= display_status(task.status) %></span></p>
   <p>Date: <span><%= task.date.strftime("%d/%m/%Y") %></span></p>
-  <p>Duration: <span><%= task.duration.round %>h</span></p>
+  <p>Duration: <span><%= task.duration.present? ? task.duration.round : 'N/A' %>h</span></p>
 </div>
 
