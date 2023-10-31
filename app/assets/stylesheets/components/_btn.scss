@@ -7,26 +7,30 @@
 
 
 .btn-back {
-  background-color: #808080; 
+  background-color: #A9A9A9; 
   float: left;
 }
 
-.btn-back:hover {
-  background-color: #606060; 
+.btn-back:hover, .log-out:hover {
+  background-color: #4a4a4a; 
 }
 
 .btn-create-task {
-  background-color: #007BFF; 
+  background-color: #89CFF3; 
   float: right;
 }
 
 .btn-create-task:hover {
-  background-color: #0056b3; 
+  background-color: #00A9FF; 
 }
 
 .button-group {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
+}
+
+.log-out {
+  background-color: #A9A9A9; 
 }
 
