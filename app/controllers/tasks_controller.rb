@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
     @to_do_tasks = Task.where(status: 'to_do')
     @in_progress_tasks = Task.where(status: 'in_progress')
@@ -32,7 +32,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path status: :see_other
+    redirect_to tasks_path, notice: 'Task was successfully deleted.'
   end
 
   private
