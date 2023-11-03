@@ -4,7 +4,7 @@
     <h1 class="text-center">To Do</h1>
     <ul class="cards p-2">
       <% @to_do_tasks.each do |task| %>
-        <%= render "task", task: task %>
+        <%= render "task", task: task, carousel_id: "todo_#{task.id}" %>
       <% end %>
     </ul>
   </div>
@@ -14,7 +14,7 @@
     <h1 class="text-center">In Progress</h1>
     <ul class="cards p-2">
       <% @in_progress_tasks.each do |task| %>
-        <%= render "task", task: task %>
+        <%= render "task", task: task, carousel_id: "inprogress_#{task.id}" %>
       <% end %>
     </ul>
   </div>
@@ -24,8 +24,9 @@
     <h1 class="text-center">Done</h1>
     <ul class="cards p-2">
       <% @done_tasks.each do |task| %>
-        <%= render "task", task: task %>
+        <%= render "task", task: task, carousel_id: "done_#{task.id}" %>
       <% end %>
     </ul>
   </div>
 </div>
+
