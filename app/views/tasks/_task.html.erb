@@ -3,9 +3,28 @@
     <i class="fa-regular fa-pen-to-square edit-icon"></i>
   <% end %>
   <li><%= task.name %></li>
-  <p> <strong>Description:</strong>  <span><%= task.description %></span></p>
-  <p><strong>Priority: </strong><span><%= task.priority %></span></p>
-  <p><strong>Due Date: </strong><span><%= task.date.strftime("%d/%m/%Y") %></span></p>
-  <p><strong>Duration: </strong><span><%= task.duration.present? ? task.duration.round : 'N/A' %>h</span></p>
+  <div class="carousel slide" data-bs-ride="false" id="<%= carousel_id %>">
+    <ol class="carousel-indicators">
+      <li data-bs-target="#<%= carousel_id %>" data-bs-slide-to="0" class="active"></li>
+      <li data-bs-target="#<%= carousel_id %>" data-bs-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <p><strong>Description:</strong> <span><%= task.description %></span></p>
+      </div>
+      <div class="carousel-item">
+        <p><strong>Priority:</strong> <span><%= task.priority %></span></p>
+        <p><strong>Due Date:</strong> <span><%= task.date.strftime("%d/%m/%Y") %></span></p>
+        <p><strong>Duration:</strong> <span><%= task.duration.present? ? task.duration.round : 'N/A' %>h</span></p>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#<%= carousel_id %>" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#<%= carousel_id %>" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
 </div>
-
