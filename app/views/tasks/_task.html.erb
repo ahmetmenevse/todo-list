@@ -1,5 +1,5 @@
 <div class="card-category">
-  <%= link_to edit_task_path(task) do %>
+  <%= link_to edit_task_path(task), data: { turbo_frame: "modal" } do %>
     <i class="fa-regular fa-pen-to-square edit-icon"></i>
   <% end %>
   <li><%= task.name %></li>
