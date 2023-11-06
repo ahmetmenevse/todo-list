@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="form">
-        <h1 class="text-center">Create New Task</h1> 
-        <%= render "form" %>
+<%= turbo_frame_tag "modal" do %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="form">
+          <%= render "form" %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

@@ -1,7 +1,10 @@
 <%= simple_form_for(@task, html: { class: 'form' }) do |f| %>
   <div class="form-group">
     <div class="button-group">
-      <%= link_to tasks_path do %> 
+      <%= link_to root_path, data: {
+        controller: "modals", 
+        action: "modals#close",
+        turbo_frame: "_top" } do %> 
       <i class="btn btn-flat btn-back fa-solid fa-house "></i>
       <% end %>
     </div>
@@ -33,9 +36,9 @@
   
   <div class="form-group">
     <div class="button-group">
-      <%= f.button :submit, class: 'btn btn-create-task' %>
+      <%= f.button :submit, data: { turbo_frame: "_top" }, class: 'btn btn-create-task' %>
       <% if @task && @task.persisted? && controller.action_name == 'edit' %>
-        <%= link_to "Delete", task_path(@task), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-delete-task' %>
+        <%= link_to "Delete", task_path(@task), data: { turbo_method: :delete, turbo_frame: "_top", turbo_confirm: "Are you sure?" }, class: 'btn btn-delete-task' %>
       <% end %>
     </div>
   </div>
