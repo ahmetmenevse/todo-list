@@ -131,9 +131,17 @@ html, body {
   .card-category {
     font-size: 16px;
     margin-bottom: 10px;
+    width: 100px;
+    li {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 7px;
+    }
   }
 
-  p, li {
+  .card-category , li {
     font-size: 14px; 
     margin-top: 10px;
   }
@@ -142,8 +150,17 @@ html, body {
     font-size: 20px; 
   }
 
-  .edit-icon {
+  .card-category .edit-icon {
     font-size: 10px;
+  }
+
+  .navbar-lewagon .btn {
+    font-size: small;
+    padding: 5px 10px;
+  }
+
+  .navbar-lewagon .container-fluid {
+    padding: 0;
   }
 }
 
