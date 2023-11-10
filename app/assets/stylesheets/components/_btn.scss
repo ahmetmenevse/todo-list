@@ -1,28 +1,28 @@
 .btn {
   border: none; 
-  color: #fff;
+  color: $white;
   border-radius: 5px;
   padding: 8px 20px; 
 }
 
 
 .btn-back {
-  background-color: #A9A9A9; 
-position: relative;
-top: -25px;
-
+  background-color: $back-button; 
+  position: relative;
+  top: -25px;
 }
 
 .btn-back:hover, .log-out:hover {
-  background-color: #4a4a4a; 
+  background-color: $back-button-hover; 
+  color: $white;
 }
 
 .btn-create-task {
-  background-color: #89CFF3; 
+  background-color: $create-button; 
 }
 
 .btn-create-task:hover {
-  background-color: #00A9FF; 
+  background-color: $create-button-hover; 
 }
 
 .button-group {
@@ -33,11 +33,16 @@ top: -25px;
 }
 
 .log-out {
-  background-color: #A9A9A9; 
+  background-color: $logout-grey; 
 }
 
 .btn-delete-task {
-  background-color: #FF0000; 
+  background-color: $delete-red; 
   float: right;
+}
+
+.btn-delete-task:hover {
+  background-color: $delete-hover; 
+  color: $white;
 }
 
