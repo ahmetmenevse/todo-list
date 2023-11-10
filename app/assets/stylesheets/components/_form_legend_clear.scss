@@ -32,3 +32,10 @@ legend ~ div.form-check:first-of-type {
 .form-group input.form-control, select.form-control, textarea.form-control {
   padding-left: 15px;
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+  .form {
+    width: 95%;
+    padding: 20px;
+  }
+}
