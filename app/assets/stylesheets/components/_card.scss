@@ -33,16 +33,16 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
+  background-color: $white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 
   li {
     text-decoration: none;
-    color: #EFB495;
+    color: $blue;
     font-size: large;
   }
 
@@ -56,6 +56,7 @@ html, body {
   font-size: small;
   font-weight: 100;
   margin: 2px;
+  padding: 0 12px;
 }
 
 .card-category p strong {
@@ -64,21 +65,21 @@ html, body {
 
 .card-category i {
   position: absolute;
-  top: 10px; /* Adjust this value to change the vertical position */
-  right: 10px; /* Adjust this value to change the horizontal position */
+  top: 10px; 
+  right: 10px; 
   font-size: 20px;
   color: #A2B5BB;
   &:hover {
-    color: #fff;
+    color: $white;
   }
 }
 
 .card-category:hover {
-  background-color: #EFB495;
+  background-color: $blue;
   transform: scale(1.05);
   transition: all 0.3s ease-in-out;
   li {
-    color: #fff;
+    color: $white;
   }
 }
 
@@ -94,22 +95,22 @@ html, body {
 .inprogress,
 .done {
   width: 33.33%;
-  background-color: #7C96AB;
+  background-color: $todo-grey;
   padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h1 {
-    color: #fff;
+    color: $white;
   }
 
   &.inprogress {
-    background-color: #BFCCB5;
+    background-color: $progress-pink;
   }
 
   &.done {
-    background-color: #D3D3D3;
+    background-color: $done-grey;
   }
 }
 
@@ -128,11 +129,18 @@ html, body {
   }
 
   .card-category {
-    font-size: 16px;
     margin-bottom: 10px;
+    width: 100px;
+    li {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 7px;
+    }
   }
 
-  p, li {
+  .card-category , li {
     font-size: 14px; 
     margin-top: 10px;
   }
@@ -141,9 +149,16 @@ html, body {
     font-size: 20px; 
   }
 
-  .edit-icon {
+  .card-category .edit-icon {
     font-size: 10px;
   }
+
+  .navbar .btn {
+    font-size: small;
+    padding: 5px 10px;
+  }
+
+
 }
 
 // Small devices (landscape phones, 576px and up)
