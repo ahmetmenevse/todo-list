@@ -129,21 +129,21 @@ html, body {
   }
 
   .card-category {
-    margin-bottom: 10px;
+    height: 130px;
     width: 100px;
     li {
-      font-size: 15px;
+      font-size: 10px;
     }
 
     p {
-      font-size: 7px;
+      font-size: 5px;
     }
   }
 
-  .card-category , li {
-    font-size: 14px; 
-    margin-top: 10px;
-  }
+  // .card-category , li {
+  //   font-size: 14px; 
+  //   margin-top: 10px;
+  // }
 
   h1 {
     font-size: 20px; 
