@@ -1,19 +1,21 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
+
   def index
-    @to_do_tasks = Task.where(status: 'to_do')
-    @in_progress_tasks = Task.where(status: 'in_progress')
-    @done_tasks = Task.where(status: 'done')
+    @to_do_tasks = current_user.tasks.where(status: 'to_do')
+    @in_progress_tasks = current_user.tasks.where(status: 'in_progress')
+    @done_tasks = current_user.tasks.where(status: 'done')
   end
 
   def new
-    @task = Task.new
+    @task = current_user.tasks.build
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to tasks_path(@tasks)
+      redirect_to root_path, notice: 'Task was successfully created.'
     else
       render :new
     end
@@ -24,7 +26,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path(@tasks)
+      redirect_to root_path, notice: 'Task was successfully edited.'
     else
       render :edit
     end
@@ -32,7 +34,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    redirect_to tasks_path, notice: 'Task was successfully deleted.'
+    redirect_to root_path, notice: 'Task was successfully deleted.'
   end
 
   private
@@ -48,7 +50,6 @@ class TasksController < ApplicationController
       :duration,
       :priority,
       :date,
-      :start_time,
       :status)
   end
 end
