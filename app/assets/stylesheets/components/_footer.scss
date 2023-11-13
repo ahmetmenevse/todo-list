@@ -21,4 +21,13 @@
   opacity: 1;
 }
 
+@media (min-width: 100px) and (max-width: 575px) {
+  .footer {
+    padding: 0px 10px;
+    height: 50px;
+  }
+  .footer-links a {
+    font-size: 16px;
+  }
+}
 
