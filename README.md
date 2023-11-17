@@ -4,10 +4,11 @@ This is a simple To-Do app built using Ruby on Rails, designed to help you manag
 
 # Features
 
-- Task Organization: Categorize your tasks into three main sections: To Do, In Progress, and Done.
-- Task Details: View detailed information about each task, including name, description, priority, due date, and duration.
-- User Authentication: Secure your tasks by ensuring that only authenticated users can access and manage them.
-- Turbo Frames: In this application, Turbo Frames are utilized to create a seamless user experience when interacting with tasks. Modals for creating and editing tasks are implemented using Turbo Frames, providing a dynamic and responsive interface without the need for traditional full-page reloads.
+- **Task Organization:** Categorize your tasks into three main sections: To Do, In Progress, and Done.
+- **Task Details:** View detailed information about each task, including name, description, priority, due date, and duration.
+- **User Authentication:** Secure your tasks by ensuring that only authenticated users can access and manage them.
+- **Turbo Frames:** In this application, Turbo Frames are utilized to create a seamless user experience when interacting with tasks. Modals for creating and editing tasks are implemented using Turbo Frames, providing a dynamic and responsive interface without the need for traditional full-page reloads.
+
 
 # Technologies Used
 
