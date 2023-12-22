@@ -3,15 +3,9 @@ class TasksController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    if params[:query].present?
-      sql_subquery = <<~SQL
-        tasks.name @@ :query
-        OR tasks.description @@ :query
-      SQL
-    end
-    @to_do_tasks = current_user.tasks.where(status: 'to_do').where(params[:query].present? ? sql_subquery : "", query: "%#{params[:query]}%")
-    @in_progress_tasks = current_user.tasks.where(status: 'in_progress').where(params[:query].present? ? sql_subquery : "", query: "%#{params[:query]}%")
-    @done_tasks = current_user.tasks.where(status: 'done').where(params[:query].present? ? sql_subquery : "", query: "%#{params[:query]}%")
+    @to_do_tasks = apply_search_condition(current_user.tasks.where(status: 'to_do'))
+    @in_progress_tasks = apply_search_condition(current_user.tasks.where(status: 'in_progress'))
+    @done_tasks = apply_search_condition(current_user.tasks.where(status: 'done'))
   end
 
   def new
@@ -57,5 +51,17 @@ class TasksController < ApplicationController
       :priority,
       :date,
       :status)
+  end
+
+  def apply_search_condition(query)
+    if params[:query].present?
+      sql_subquery = <<~SQL
+        tasks.name @@ :query
+        OR tasks.description @@ :query
+      SQL
+      query.where(sql_subquery, query: "%#{params[:query]}%")
+    else
+      query
+    end
   end
 end
