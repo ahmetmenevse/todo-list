@@ -1,9 +1,9 @@
-<%= turbo_frame_tag "modal" do %>  
+<%= turbo_frame_tag "modal" do %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="form">
-          <%= render "form" %>
+          <%= render "form", task: @task  %>
         </div>
       </div>
     </div>
