@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path, notice: 'Task was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to root_path, notice: 'Task was successfully edited.'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -39,18 +39,17 @@ class TasksController < ApplicationController
 
   private
 
-
   def set_task
     @task = Task.find(params[:id])
   end
 
   def task_params
     params.require(:task).permit(:name,
-      :description,
-      :duration,
-      :priority,
-      :date,
-      :status)
+                                 :description,
+                                 :duration,
+                                 :priority,
+                                 :date,
+                                 :status)
   end
 
   def apply_search_condition(query)
