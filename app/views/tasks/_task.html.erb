@@ -1,4 +1,11 @@
-<div class="card-category">
+<div class="card-category
+  <%= 'overdue' if task.date < Date.today && task.status != 'done' %>"
+  data-controller="tooltip">
+  <div data-action="mouseover->tooltip#mouseover mouseout->tooltip#mouseout">
+    <% if task.date < Date.today && task.status != 'done' %>
+      <i class="fa fa-exclamation-triangle" aria-hidden="true" data-tooltip-target="source"></i>
+    <% end %>
+  </div>
   <%= link_to edit_task_path(task), data: { turbo_frame: "modal" } do %>
     <i class="fa-regular fa-pen-to-square edit-icon"></i>
   <% end %>

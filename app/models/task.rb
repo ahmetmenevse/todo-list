@@ -6,11 +6,17 @@ class Task < ApplicationRecord
   validates :date, presence: true
   validates :status, presence: true
 
-  before_create :capitalize_name
+  before_save :capitalize_name
+  before_save :mark_as_overdue
 
   private
 
   def capitalize_name
     self.name = name.split.map(&:capitalize).join(' ')
   end
+
+  def mark_as_overdue
+    self.overdue = date < Date.today && status == 'to_do'
+  end
+
 end

@@ -65,12 +65,13 @@ html, body {
 
 .card-category i {
   position: absolute;
-  top: 10px; 
-  right: 10px; 
+  top: 10px;
+  right: 10px;
   font-size: 20px;
   color: #A2B5BB;
   &:hover {
     color: $white;
+    font-size: 25px;
   }
 }
 
@@ -89,6 +90,14 @@ html, body {
   right: 0;
   font-size: 20px;
   color: #A2B5BB;
+}
+
+.card-category .fa-exclamation-triangle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 20px;
+  color: red;
 }
 
 .todo,
@@ -141,12 +150,12 @@ html, body {
   }
 
   .card-category , li {
-    font-size: 14px; 
+    font-size: 14px;
     margin-top: 10px;
   }
 
   h1 {
-    font-size: 20px; 
+    font-size: 20px;
   }
 
   .card-category .edit-icon {
@@ -166,7 +175,7 @@ html, body {
   .cards {
     grid-template-columns: 1fr;
   }
-  
+
 }
 
 // Medium devices (tablets, 768px and up)
