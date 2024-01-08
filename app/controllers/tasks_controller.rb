@@ -1,11 +1,11 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: %i[edit update destroy]
   before_action :authenticate_user!
 
   def index
-    @to_do_tasks = apply_search_condition(current_user.tasks.where(status: 'to_do'))
-    @in_progress_tasks = apply_search_condition(current_user.tasks.where(status: 'in_progress'))
-    @done_tasks = apply_search_condition(current_user.tasks.where(status: 'done'))
+    @to_do_tasks = apply_search_condition(current_user.tasks.to_do)
+    @in_progress_tasks = apply_search_condition(current_user.tasks.in_progress)
+    @done_tasks = apply_search_condition(current_user.tasks.done)
   end
 
   def new
@@ -33,8 +33,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    redirect_to root_path, notice: 'Task was successfully deleted.'
+    if @task.destroy
+      redirect_to root_path, notice: 'Task was successfully deleted.'
+    else
+      error_message = @task.errors.full_messages.to_sentence
+      redirect_to root_path, alert: error_message
+    end
   end
 
   private
