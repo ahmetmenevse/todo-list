@@ -8,6 +8,7 @@ class Task < ApplicationRecord
 
   before_save :capitalize_name
   before_save :mark_as_overdue
+  before_destroy :check_if_done
 
   private
 
@@ -16,7 +17,13 @@ class Task < ApplicationRecord
   end
 
   def mark_as_overdue
-    self.overdue = date < Date.today && status == 'to_do'
+    self.overdue = date < Date.today && to_do?
   end
 
+  def check_if_done
+    unless done?
+      errors.add(:base, "You can only delete tasks that are done")
+      throw :abort
+    end
+  end
 end
