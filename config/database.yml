@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: todo_list_production
-  username: todo_list
-  password: <%= ENV["TODO_LIST_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
