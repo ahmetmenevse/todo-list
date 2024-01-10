@@ -285,6 +285,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simple_form!
+  sprockets-rails
   stimulus-rails
   turbo-rails
   tzinfo-data
