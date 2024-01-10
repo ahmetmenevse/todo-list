@@ -22,7 +22,7 @@ This is a simple To-Do app built using Ruby on Rails, designed to help you manag
 
 
 # Demo
-Explore the app live on [Heroku](https://todolis-159-c204c84ceb09.herokuapp.com). 
+Explore the app live on [Heroku](https://todolist-12-69e060ffe57a.herokuapp.com). 
 
 user:     test@test.com
 
