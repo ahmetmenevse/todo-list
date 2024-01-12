@@ -14,9 +14,10 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.build(task_params)
-    if @task.save
+    begin
+      @task.save!
       redirect_to root_path, notice: 'Task was successfully created.'
-    else
+    rescue ActiveRecord::RecordInvalid
       render :new, status: :unprocessable_entity
     end
   end
@@ -44,7 +45,11 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    begin
+      @task = Task.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, alert: 'Task not found'
+    end
   end
 
   def task_params
