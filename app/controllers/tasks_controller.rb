@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   def index
@@ -10,6 +10,10 @@ class TasksController < ApplicationController
 
   def new
     @task = current_user.tasks.build
+  end
+
+  def show
+
   end
 
   def create
