@@ -1,10 +1,7 @@
 <%= simple_form_for(@task, html: { class: 'form' }) do |f| %>
   <div class="form-group">
     <div class="button-group">
-      <%= link_to root_path, data: {
-        controller: "modals",
-        action: "modals#close",
-        turbo_frame: "_top" } do %>
+      <%= link_to root_path, data: { turbo_frame: "_top" } do %>
       <i class="btn btn-flat btn-back fa-solid fa-house "></i>
       <% end %>
     </div>
