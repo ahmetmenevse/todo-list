@@ -12,9 +12,7 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build
   end
 
-  def show
-
-  end
+  def show; end
 
   def create
     @task = current_user.tasks.build(task_params)
@@ -22,7 +20,12 @@ class TasksController < ApplicationController
       @task.save!
       redirect_to root_path, notice: 'Task was successfully created.'
     rescue ActiveRecord::RecordInvalid
-      render :new, status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("modal", partial: "form", locals: { task: @task })
+        end
+      end
     end
   end
 
@@ -33,7 +36,12 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to root_path, notice: 'Task was successfully edited.'
     else
-      render :edit, status: :unprocessable_entity
+      respond_to do |format|
+        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace("modal", partial: "form", locals: { task: @task })
+        end
+      end
     end
   end
 
